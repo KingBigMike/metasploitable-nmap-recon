@@ -1,0 +1,1091 @@
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-09-27 21:53 -0400
+NSE: Loaded 180 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 21:53
+Completed NSE at 21:53, 0.00s elapsed
+Initiating NSE at 21:53
+Completed NSE at 21:53, 0.00s elapsed
+Pre-scan script results:
+|_http-robtex-shared-ns: *TEMPORARILY DISABLED* due to changes in Robtex's API. See https://www.robtex.com/api/
+Initiating ARP Ping Scan at 21:53
+Scanning 192.168.0.156 [1 port]
+Completed ARP Ping Scan at 21:53, 0.06s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 21:53
+Completed Parallel DNS resolution of 1 host. at 21:53, 0.50s elapsed
+Initiating SYN Stealth Scan at 21:53
+Scanning 192.168.0.156 [1000 ports]
+Discovered open port 445/tcp on 192.168.0.156
+Discovered open port 21/tcp on 192.168.0.156
+Discovered open port 139/tcp on 192.168.0.156
+Discovered open port 23/tcp on 192.168.0.156
+Discovered open port 3306/tcp on 192.168.0.156
+Discovered open port 53/tcp on 192.168.0.156
+Discovered open port 22/tcp on 192.168.0.156
+Discovered open port 80/tcp on 192.168.0.156
+Discovered open port 25/tcp on 192.168.0.156
+Discovered open port 5900/tcp on 192.168.0.156
+Discovered open port 111/tcp on 192.168.0.156
+Discovered open port 513/tcp on 192.168.0.156
+Discovered open port 512/tcp on 192.168.0.156
+Discovered open port 6667/tcp on 192.168.0.156
+Discovered open port 514/tcp on 192.168.0.156
+Discovered open port 1524/tcp on 192.168.0.156
+Discovered open port 1099/tcp on 192.168.0.156
+Discovered open port 8009/tcp on 192.168.0.156
+Discovered open port 8180/tcp on 192.168.0.156
+Discovered open port 6000/tcp on 192.168.0.156
+Discovered open port 2121/tcp on 192.168.0.156
+Discovered open port 2049/tcp on 192.168.0.156
+Discovered open port 5432/tcp on 192.168.0.156
+Completed SYN Stealth Scan at 21:53, 0.10s elapsed (1000 total ports)
+Initiating Service scan at 21:53
+Scanning 23 services on 192.168.0.156
+Completed Service scan at 21:54, 63.06s elapsed (23 services on 1 host)
+Initiating OS detection (try #1) against 192.168.0.156
+NSE: Script scanning 192.168.0.156.
+Initiating NSE at 21:54
+NSE Timing: About 72.95% done; ETC: 21:56 (0:00:30 remaining)
+NSE Timing: About 72.95% done; ETC: 21:56 (0:00:41 remaining)
+NSE Timing: About 72.95% done; ETC: 21:57 (0:00:57 remaining)
+NSE Timing: About 72.95% done; ETC: 21:58 (0:01:12 remaining)
+NSE Timing: About 72.95% done; ETC: 21:59 (0:01:28 remaining)
+NSE Timing: About 72.95% done; ETC: 22:00 (0:01:45 remaining)
+NSE Timing: About 72.95% done; ETC: 22:01 (0:02:05 remaining)
+NSE Timing: About 72.95% done; ETC: 22:03 (0:02:29 remaining)
+NSE Timing: About 72.95% done; ETC: 22:05 (0:02:57 remaining)
+NSE Timing: About 72.95% done; ETC: 22:07 (0:03:30 remaining)
+NSE Timing: About 72.95% done; ETC: 22:09 (0:04:09 remaining)
+NSE Timing: About 72.95% done; ETC: 22:12 (0:04:56 remaining)
+NSE Timing: About 72.95% done; ETC: 22:15 (0:05:52 remaining)
+NSE Timing: About 72.95% done; ETC: 22:19 (0:06:57 remaining)
+NSE Timing: About 72.95% done; ETC: 22:24 (0:08:15 remaining)
+NSE Timing: About 72.95% done; ETC: 22:30 (0:09:47 remaining)
+NSE Timing: About 83.50% done; ETC: 22:30 (0:05:58 remaining)
+NSE Timing: About 76.84% done; ETC: 22:34 (0:09:15 remaining)
+NSE Timing: About 77.33% done; ETC: 22:43 (0:11:15 remaining)
+NSE Timing: About 78.09% done; ETC: 22:56 (0:13:44 remaining)
+NSE Timing: About 87.80% done; ETC: 23:02 (0:08:23 remaining)
+Completed NSE at 22:59, 3927.50s elapsed
+Initiating NSE at 22:59
+Completed NSE at 22:59, 0.67s elapsed
+Nmap scan report for 192.168.0.156
+Host is up (0.00100s latency).
+Not shown: 977 closed tcp ports (reset)
+Bug in http-security-headers: no string output.
+Bug in http-security-headers: no string output.
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+23/tcp   open  telnet      Linux telnetd
+25/tcp   open  smtp        Postfix smtpd
+53/tcp   open  domain      ISC BIND 9.4.2
+80/tcp   open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_      http://ha.ckers.org/slowloris/
+| http-trace: TRACE is enabled
+| Headers:
+| Date: Sun, 27 Sep 2026 21:07:17 GMT
+| Server: Apache/2.2.8 (Ubuntu) DAV/2
+| Connection: close
+| Transfer-Encoding: chunked
+|_Content-Type: message/http
+| http-grep: 
+|   (2) http://192.168.0.156:80/mutillidae/index.php?page=browser-info.php: 
+|     (1) ip: 
+|       + 192.168.255.255
+|     (1) email: 
+|       + abuse@iana.org
+|   (1) http://192.168.0.156:80/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php: 
+|     (1) ip: 
+|_      + 192.168.56.0
+| http-fileupload-exploiter: 
+|   
+|_    Couldn't find a file-type field.
+|_http-wordpress-enum: Nothing found amongst the top 100 resources,use --script-args search-limit=<number|all> for deeper analysis)
+|_http-slowloris: false
+|_http-rfi-spider: ERROR: Script execution failed (use -d to debug)
+|_http-date: Sun, 27 Sep 2026 20:36:59 GMT; -5h47m24s from local time.
+|_http-devframework: Couldn't determine the underlying framework or CMS. Try increasing 'httpspider.maxpagecount' value to spider more pages.
+| http-useragent-tester: 
+|   Status for browser useragent: 200
+|   Allowed User Agents: 
+|     Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)
+|     libwww
+|     lwp-trivial
+|     libcurl-agent/1.0
+|     PHP/
+|     Python-urllib/2.5
+|     GT::WWW
+|     Snoopy
+|     MFC_Tear_Sample
+|     HTTP::Lite
+|     PHPCrawl
+|     URI::Fetch
+|     Zend_Http_Client
+|     http client
+|     PECL::HTTP
+|     Wget/1.13.4 (linux-gnu)
+|_    WWW-Mechanize/1.34
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-server-header: Apache/2.2.8 (Ubuntu) DAV/2
+|_http-vuln-cve2017-1001000: ERROR: Script execution failed (use -d to debug)
+| http-vhosts: 
+|_128 names had status 200
+|_http-unsafe-output-escaping: ERROR: Script execution failed (use -d to debug)
+| http-auth-finder: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.0.156
+|   url                                                              method
+|   http://192.168.0.156:80/dvwa/                                    FORM
+|   http://192.168.0.156:80/phpMyAdmin/                              FORM
+|_  http://192.168.0.156:80/mutillidae/index.php?page=user-info.php  FORM
+| http-comments-displayer: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.0.156
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 113
+|     Comment: 
+|          //in WebKit browsers, set first child shadow's opacity to 0, as "overflow:hidden" doesn't work in them
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 63
+|     Comment: 
+|          //reference current LI header
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 20
+|     Comment: 
+|         
+|         //Specify full URL to down and right arrow images (23 is padding-right added to top level LIs with drop downs):
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 33
+|     Comment: 
+|          //reference empty div on page that will hold menu
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 11
+|     Comment: 
+|         
+|         //** 2) In IE6, shadows are now always disabled
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 5
+|     Comment: 
+|         
+|         //** Dec 12th, 08" (v1.01): Fixed Shadow issue when multiple LIs within the same UL (level) contain sub menus: http://www.dynamicdrive.com/forums/showthread.php?t=39177&highlight=smooth
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 134
+|     Comment: 
+|          //override default menu colors (default/hover) with custom set?
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 16
+|     Comment: 
+|         
+|         //** Dec 17th, 10" (v1.5): Updated menu shadow to use CSS3 box shadows when the browser is FF3.5+, IE9+, Opera9.5+, or Safari3+/Chrome. Only .js file changed.
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 69
+|     Comment: 
+|          //add arrow images
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 67
+|     Comment: 
+|          //is top level header?
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 93
+|     Comment: 
+|          //if 1 or less queued animations
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=pen-test-tool-lookup.php
+|     Line number: 536
+|     Comment: 
+|         <!-- BEGIN HTML OUTPUT  -->
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 153
+|     Comment: 
+|          //end ddsmoothmenu variable
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 92
+|     Comment: 
+|          //calculate this sub menu's offsets from its parent
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 122
+|     Comment: 
+|          //if shadows enabled and browser supports CSS3 shadows
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 144
+|     Comment: 
+|          //if external ajax menu
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 143
+|     Comment: 
+|          //ajax menu?
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 62
+|     Comment: 
+|          //loop through each LI header
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 142
+|     Comment: 
+|          //in IE6, always disable shadow
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 2
+|     Comment: 
+|         
+|         //** Script Download/ instructions page: http://www.dynamicdrive.com/dynamicindex1/ddlevelsmenu/
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=password-generator.php&username=anonymous
+|     Line number: 491
+|     Comment: 
+|         /*HTMLFormElement*/
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 9
+|     Comment: 
+|         
+|         //** May 1st, 09" (v1.3):
+|     
+|     Path: http://192.168.0.156:80/phpMyAdmin/
+|     Line number: 66
+|     Comment: 
+|         
+|         // <![CDATA[
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 26
+|     Comment: 
+|         
+|         ///////Stop configuring beyond here///////////////////////////
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 124
+|     Comment: 
+|          //construct CSS3 box-shadow value
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 147
+|     Comment: 
+|          //else if markup menu
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 87
+|     Comment: 
+|          //reference header LI as DOM object
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php
+|     Line number: 33
+|     Comment: 
+|         
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 28
+|     Comment: 
+|          //detect WebKit browsers (Safari, Chrome etc)
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 120
+|     Comment: 
+|          //end hover
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 98
+|     Comment: 
+|          //in WebKit browsers, restore shadow's opacity to full
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 121
+|     Comment: 
+|          //end $headers.each()
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 30
+|     Comment: 
+|          //detect browsers that support CSS3 box shadows (ie9+ or FF3.5+, Safari3+, Chrome etc)
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php
+|     Line number: 488
+|     Comment: 
+|         <!-- Begin Content -->
+|     
+|     Path: http://192.168.0.156:80/dvwa/
+|     Line number: 57
+|     Comment: 
+|         <!-- <img src="dvwa/images/RandomStorm.png" /> -->
+|     
+|     Path: http://192.168.0.156:80/dvwa/
+|     Line number: 61
+|     Comment: 
+|         <!-- end align div -->
+|     
+|     Path: http://192.168.0.156:80/phpMyAdmin/
+|     Line number: 79
+|     Comment: 
+|         
+|         // ]]>
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 86
+|     Comment: 
+|          //reference UL to reveal
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php
+|     Line number: 23
+|     Comment: 
+|         
+|         
+|         
+|         
+|         		***********************************************/
+|     
+|     Path: http://192.168.0.156:80/phpMyAdmin/
+|     Line number: 13
+|     Comment: 
+|         
+|         //<![CDATA[
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 82
+|     Comment: 
+|          //insert shadow DIV and set it to parent node for the next shadow div
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 75
+|     Comment: 
+|          //store this shadow's offsets
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 24
+|     Comment: 
+|          //set delay in milliseconds before sub menus appear and disappear, respectively
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php
+|     Line number: 32
+|     Comment: 
+|         
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 74
+|     Comment: 
+|          //if shadows enabled and browser doesn't support CSS3 box shadows
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 23
+|     Comment: 
+|          //enable shadow?
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 13
+|     Comment: 
+|         
+|         //** July 27th, 09" (v1.31): Fixed bug so shadows can be disabled if desired.
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=pen-test-tool-lookup.php
+|     Line number: 584
+|     Comment: 
+|         /*Exception*/
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php
+|     Line number: 2
+|     Comment: 
+|         
+|         
+|         
+|         
+|         
+|         
+|         
+|         			security instructors are just making all this up. -->
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 36
+|     Comment: 
+|          //path to external menu file
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 51
+|     Comment: 
+|          //reference main menu UL
+|     
+|     Path: http://192.168.0.156:80/phpMyAdmin/
+|     Line number: 44
+|     Comment: 
+|         <!-- Login form -->
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 22
+|     Comment: 
+|          //duration of slide in/ out animation, in milliseconds
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 7
+|     Comment: 
+|         
+|         //** Feb 11th, 09" (v1.02): The currently active main menu item (LI A) now gets a CSS class of ".selected", including sub menu items.
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php
+|     Line number: 31
+|     Comment: 
+|         
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php
+|     Line number: 35
+|     Comment: 
+|         
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 32
+|     Comment: 
+|          //function to fetch external page containing the panel DIVs
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php
+|     Line number: 514
+|     Comment: 
+|         <!-- End Content -->
+|     
+|     Path: http://192.168.0.156:80/phpMyAdmin/
+|     Line number: 18
+|     Comment: 
+|         
+|         //]]>
+|     
+|     Path: http://192.168.0.156:80/mutillidae/javascript/ddsmoothmenu/ddsmoothmenu.js
+|     Line number: 125
+|     Comment: 
+|_         //possible vendor specific CSS3 shadow properties
+|_http-apache-negotiation: mod_negotiation enabled.
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-headers: 
+|   Date: Sun, 27 Sep 2026 21:07:05 GMT
+|   Server: Apache/2.2.8 (Ubuntu) DAV/2
+|   X-Powered-By: PHP/5.2.4-2ubuntu5.10
+|   Connection: close
+|   Content-Type: text/html
+|   
+|_  (Request type: HEAD)
+| http-sitemap-generator: 
+|   Directory structure:
+|     /
+|       Other: 1
+|     /dav/
+|       Other: 1
+|     /dvwa/
+|       Other: 1
+|     /mutillidae/
+|       Other: 1; php: 1
+|     /mutillidae/images/
+|       jpeg: 1; jpg: 3; png: 2
+|     /mutillidae/javascript/ddsmoothmenu/
+|       js: 1
+|     /phpMyAdmin/
+|       Other: 1
+|     /twiki/
+|       Other: 1
+|   Longest directory structure:
+|     Depth: 3
+|     Dir: /mutillidae/javascript/ddsmoothmenu/
+|   Total files found (by extension):
+|_    Other: 6; jpeg: 1; jpg: 3; js: 1; php: 1; png: 2
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-mobileversion-checker: No mobile version detected.
+| http-enum: 
+|   /tikiwiki/: Tikiwiki
+|   /test/: Test page
+|   /phpinfo.php: Possible information file
+|   /phpMyAdmin/: phpMyAdmin
+|   /doc/: Potentially interesting directory w/ listing on 'apache/2.2.8 (ubuntu) dav/2'
+|   /icons/: Potentially interesting folder w/ directory listing
+|_  /index/: Potentially interesting folder
+| http-brute:   
+|_  Path "/" does not require authentication
+|_http-referer-checker: Couldn't find any cross-domain scripts.
+|_http-title: Metasploitable2 - Linux
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-errors: Couldn't find any error pages.
+|_http-chrono: Request times for /; avg: 265.50ms; min: 182.64ms; max: 343.54ms
+|_http-fetch: Please enter the complete path of the directory to save data in.
+|_http-sql-injection: ERROR: Script execution failed (use -d to debug)
+|_http-drupal-enum: Nothing found amongst the top 100 resources,use --script-args number=<number|all> for deeper analysis)
+|_http-xssed: No previously reported XSS vuln.
+|_http-feed: Couldn't find any feeds.
+| http-csrf: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.0.156
+|   Found the following possible CSRF vulnerabilities: 
+|     
+|     Path: http://192.168.0.156:80/dvwa/
+|     Form id: 
+|     Form action: login.php
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=text-file-viewer.php
+|     Form id: id-bad-cred-tr
+|     Form action: index.php?page=text-file-viewer.php
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=view-someones-blog.php
+|     Form id: id-bad-blog-entry-tr
+|     Form action: index.php?page=view-someones-blog.php
+|     
+|     Path: http://192.168.0.156:80/mutillidae/index.php?page=user-info.php
+|     Form id: id-bad-cred-tr
+|_    Form action: ./index.php?page=user-info.php
+|_http-malware-host: Host appears to be clean
+| http-php-version: Versions from logo query (less accurate): 5.1.3 - 5.1.6, 5.2.0 - 5.2.17
+| Versions from credits query (more accurate): 5.2.3 - 5.2.5, 5.2.6RC3
+|_Version from header x-powered-by: PHP/5.2.4-2ubuntu5.10
+111/tcp  open  rpcbind     2 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2            111/tcp   rpcbind
+|   100000  2            111/udp   rpcbind
+|   100003  2,3,4       2049/tcp   nfs
+|   100003  2,3,4       2049/udp   nfs
+|   100005  1,2,3      43024/udp   mountd
+|   100005  1,2,3      52994/tcp   mountd
+|   100021  1,3,4      42804/tcp   nlockmgr
+|   100021  1,3,4      48621/udp   nlockmgr
+|   100024  1          34425/udp   status
+|_  100024  1          55166/tcp   status
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+512/tcp  open  exec?
+513/tcp  open  login       OpenBSD or Solaris rlogind
+514/tcp  open  shell?
+| fingerprint-strings: 
+|   NULL: 
+|_    Couldn't get address for your host (kali)
+1099/tcp open  java-rmi    GNU Classpath grmiregistry
+1524/tcp open  bindshell   Metasploitable root shell
+2049/tcp open  nfs         2-4 (RPC #100003)
+2121/tcp open  ftp         ProFTPD 1.3.1
+3306/tcp open  mysql       MySQL 5.0.51a-3ubuntu5
+5432/tcp open  postgresql  PostgreSQL DB 8.3.0 - 8.3.7
+5900/tcp open  vnc         VNC (protocol 3.3)
+6000/tcp open  X11         (access denied)
+6667/tcp open  irc         UnrealIRCd
+8009/tcp open  ajp13       Apache Jserv (Protocol v1.3)
+8180/tcp open  http        Apache Tomcat/Coyote JSP engine 1.1
+|_http-rfi-spider: ERROR: Script execution failed (use -d to debug)
+|_http-drupal-enum: Nothing found amongst the top 100 resources,use --script-args number=<number|all> for deeper analysis)
+|_http-fetch: Please enter the complete path of the directory to save data in.
+| http-vhosts: 
+|_128 names had status 200
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-useragent-tester: 
+|   Status for browser useragent: 200
+|   Allowed User Agents: 
+|     Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)
+|     libwww
+|     lwp-trivial
+|     libcurl-agent/1.0
+|     PHP/
+|     Python-urllib/2.5
+|     GT::WWW
+|     Snoopy
+|     MFC_Tear_Sample
+|     HTTP::Lite
+|     PHPCrawl
+|     URI::Fetch
+|     Zend_Http_Client
+|     http client
+|     PECL::HTTP
+|     Wget/1.13.4 (linux-gnu)
+|_    WWW-Mechanize/1.34
+| http-csrf: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.0.156
+|   Found the following possible CSRF vulnerabilities: 
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Form id: username
+|_    Form action: j_security_check;jsessionid=1584D450E09F01A23D55B7B5554B960B
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+|_http-feed: Couldn't find any feeds.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+|_http-sql-injection: ERROR: Script execution failed (use -d to debug)
+|_http-mobileversion-checker: No mobile version detected.
+| http-grep: 
+|   (2) http://192.168.0.156:8180/: 
+|     (2) email: 
+|       + users@tomcat.apache.org
+|       + dev@tomcat.apache.org
+|   (3) http://192.168.0.156:8180/tomcat-docs/: 
+|     (3) email: 
+|       + craigmcc@apache.org
+|       + remm@apache.org
+|       + yoavs@apache.org
+|   (1) http://192.168.0.156:8180/tomcat-docs/changelog.html: 
+|     (1) email: 
+|       + fhanik@apache.org
+|   (2) http://192.168.0.156:8180/tomcat-docs/jasper-howto.html: 
+|     (2) email: 
+|       + glenn@apache.org
+|       + pero@apache.org
+|   (1) http://192.168.0.156:8180/tomcat-docs/monitoring.html: 
+|     (1) ip: 
+|       + 192.168.111.1
+|   (1) http://192.168.0.156:8180/tomcat-docs/mbeans-descriptor-howto.html: 
+|     (1) email: 
+|_      + amyroh@apache.org
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-wordpress-enum: Nothing found amongst the top 100 resources,use --script-args search-limit=<number|all> for deeper analysis)
+| http-default-accounts: 
+|   [Apache Tomcat] at /manager/html/
+|     tomcat:tomcat
+|   [Apache Tomcat Host Manager] at /host-manager/html/
+|_    tomcat:tomcat
+|_http-devframework: Couldn't determine the underlying framework or CMS. Try increasing 'httpspider.maxpagecount' value to spider more pages.
+| http-auth-finder: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.0.156
+|   url                                       method
+|   http://192.168.0.156:8180/manager/html    HTTP: Basic
+|   http://192.168.0.156:8180/admin/          FORM
+|_  http://192.168.0.156:8180/manager/status  HTTP: Basic
+|_http-favicon: Apache Tomcat
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-malware-host: Host appears to be clean
+| http-cookie-flags: 
+|   /admin/: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/index.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/login.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/admin.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/account.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/admin_login.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/home.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/admin-login.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/adminLogin.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/controlpanel.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/cp.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/index.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/login.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/admin.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/home.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/controlpanel.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/admin-login.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/cp.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/account.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/admin_login.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/adminLogin.jsp: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/view/javascript/fckeditor/editor/filemanager/connectors/test.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/includes/FCKeditor/editor/filemanager/upload/test.html: 
+|     JSESSIONID: 
+|       httponly flag not set
+|   /admin/jscript/upload.html: 
+|     JSESSIONID: 
+|_      httponly flag not set
+|_http-server-header: Apache-Coyote/1.1
+| http-headers: 
+|   Server: Apache-Coyote/1.1
+|   Content-Type: text/html;charset=ISO-8859-1
+|   Date: Sun, 27 Sep 2026 20:06:53 GMT
+|   Connection: close
+|   
+|_  (Request type: HEAD)
+| http-errors: 
+| Spidering limited to: maxpagecount=40; withinhost=192.168.0.156
+|   Found the following error pages: 
+|   
+|   Error Code: 401
+|   	http://192.168.0.156:8180/manager/html
+|   
+|   Error Code: 401
+|_  	http://192.168.0.156:8180/manager/status
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_      http://ha.ckers.org/slowloris/
+|_http-xssed: No previously reported XSS vuln.
+| http-comments-displayer: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.0.156
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/jndi-resources-howto.html
+|     Line number: 58
+|     Comment: 
+|         
+|         // Obtain our environment naming context
+|     
+|     Path: http://192.168.0.156:8180/
+|     Line number: 90
+|     Comment: 
+|         <!-- Header -->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/jndi-resources-howto.html
+|     Line number: 66
+|     Comment: 
+|         
+|         // Allocate and use a connection from the pool
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 66
+|     Comment: 
+|         <!-- Body -->
+|     
+|     Path: http://192.168.0.156:8180/
+|     Line number: 84
+|     Comment: 
+|         /*]]>*/
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 112
+|     Comment: 
+|         <!-- login reset buttons layout -->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/jndi-resources-howto.html
+|     Line number: 62
+|     Comment: 
+|         
+|         // Look up our data source
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/mbeans-descriptor-howto.html
+|     Line number: 3
+|     Comment: 
+|         <!--LEFT SIDE NAVIGATION-->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/mbeans-descriptor-howto.html
+|     Line number: 3
+|     Comment: 
+|         <!--RIGHT SIDE MAIN BODY-->
+|     
+|     Path: http://192.168.0.156:8180/webdav/index.html
+|     Line number: 1
+|     Comment: 
+|         <!--
+|           Licensed to the Apache Software Foundation (ASF) under one or more
+|           contributor license agreements.  See the NOTICE file distributed with
+|           this work for additional information regarding copyright ownership.
+|           The ASF licenses this file to You under the Apache License, Version 2.0
+|           (the "License"); you may not use this file except in compliance with
+|           the License.  You may obtain a copy of the License at
+|         
+|               http://www.apache.org/licenses/LICENSE-2.0
+|         
+|           Unless required by applicable law or agreed to in writing, software
+|           distributed under the License is distributed on an "AS IS" BASIS,
+|           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+|           See the License for the specific language governing permissions and
+|           limitations under the License.
+|         -->
+|     
+|     Path: http://192.168.0.156:8180/
+|     Line number: 25
+|     Comment: 
+|         /*<![CDATA[*/
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/mbeans-descriptor-howto.html
+|     Line number: 45
+|     Comment: 
+|         <!--FOOTER SEPARATOR-->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/mbeans-descriptor-howto.html
+|     Line number: 3
+|     Comment: 
+|         <!--APACHE LOGO-->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 138
+|     Comment: 
+|         <!-- Standard Footer -->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 72
+|     Comment: 
+|         <!-- Login -->
+|     
+|     Path: http://192.168.0.156:8180/servlets-examples/
+|     Line number: 1
+|     Comment: 
+|         <!--
+|          Licensed to the Apache Software Foundation (ASF) under one or more
+|           contributor license agreements.  See the NOTICE file distributed with
+|           this work for additional information regarding copyright ownership.
+|           The ASF licenses this file to You under the Apache License, Version 2.0
+|           (the "License"); you may not use this file except in compliance with
+|           the License.  You may obtain a copy of the License at
+|         
+|               http://www.apache.org/licenses/LICENSE-2.0
+|         
+|           Unless required by applicable law or agreed to in writing, software
+|           distributed under the License is distributed on an "AS IS" BASIS,
+|           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+|           See the License for the specific language governing permissions and
+|           limitations under the License.
+|         -->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 32
+|     Comment: 
+|         <!--
+|             if (window.self != window.top) {
+|               window.open(".", "_top");
+|             }
+|           // -->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 40
+|     Comment: 
+|         <!-- Standard Content -->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 36
+|     Comment: 
+|          // -->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 131
+|     Comment: 
+|         <!--
+|             document.forms["loginForm"].elements["j_username"].focus()
+|           // -->
+|     
+|     Path: http://192.168.0.156:8180/jsp-examples/
+|     Line number: 56
+|     Comment: 
+|         <!--<tr VALIGN=TOP>
+|         <td WIDTH="30"><img SRC="images/read.gif" height=24 width=24></td>
+|         
+|         <td>Read more about this feature</td>
+|         -->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/mbeans-descriptor-howto.html
+|     Line number: 1
+|     Comment: 
+|         <!--PAGE HEADER-->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 17
+|     Comment: 
+|         <!-- Standard Struts Entries -->
+|     
+|     Path: http://192.168.0.156:8180/jsp-examples/
+|     Line number: 24
+|     Comment: 
+|         <!--
+|           Copyright (c) 1999 The Apache Software Foundation.  All rights 
+|           reserved.
+|         -->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/mbeans-descriptor-howto.html
+|     Line number: 3
+|     Comment: 
+|         <!--HEADER SEPARATOR-->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/jndi-resources-howto.html
+|     Line number: 632
+|     Comment: 
+|          // Return the customized instance
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/jndi-resources-howto.html
+|     Line number: 614
+|     Comment: 
+|          // Customize the bean properties from our attributes
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/mbeans-descriptor-howto.html
+|     Line number: 1
+|     Comment: 
+|         <!--PROJECT LOGO-->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/jndi-resources-howto.html
+|     Line number: 611
+|     Comment: 
+|          // Acquire an instance of our specified bean class
+|     
+|     Path: http://192.168.0.156:8180/manager/status
+|     Line number: 1
+|     Comment: 
+|         <!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}-->
+|     
+|     Path: http://192.168.0.156:8180/
+|     Line number: 110
+|     Comment: 
+|         <!-- Table of Contents -->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 28
+|     Comment: 
+|         <!-- Make sure window is not in a frame -->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 79
+|     Comment: 
+|         <!-- banner -->
+|     
+|     Path: http://192.168.0.156:8180/admin/
+|     Line number: 85
+|     Comment: 
+|         <!-- username password prompts fields layout -->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/mbeans-descriptor-howto.html
+|     Line number: 45
+|     Comment: 
+|         <!--PAGE FOOTER-->
+|     
+|     Path: http://192.168.0.156:8180/tomcat-docs/jspapi/index.html
+|     Line number: 2
+|     Comment: 
+|_        <!-- this comment required for konqueror 3.2.2 -->
+| http-enum: 
+|   /admin/: Possible admin folder
+|   /admin/index.html: Possible admin folder
+|   /admin/login.html: Possible admin folder
+|   /admin/admin.html: Possible admin folder
+|   /admin/account.html: Possible admin folder
+|   /admin/admin_login.html: Possible admin folder
+|   /admin/home.html: Possible admin folder
+|   /admin/admin-login.html: Possible admin folder
+|   /admin/adminLogin.html: Possible admin folder
+|   /admin/controlpanel.html: Possible admin folder
+|   /admin/cp.html: Possible admin folder
+|   /admin/index.jsp: Possible admin folder
+|   /admin/login.jsp: Possible admin folder
+|   /admin/admin.jsp: Possible admin folder
+|   /admin/home.jsp: Possible admin folder
+|   /admin/controlpanel.jsp: Possible admin folder
+|   /admin/admin-login.jsp: Possible admin folder
+|   /admin/cp.jsp: Possible admin folder
+|   /admin/account.jsp: Possible admin folder
+|   /admin/admin_login.jsp: Possible admin folder
+|   /admin/adminLogin.jsp: Possible admin folder
+|   /manager/html/upload: Apache Tomcat (401 Unauthorized)
+|   /manager/html: Apache Tomcat (401 Unauthorized)
+|   /admin/view/javascript/fckeditor/editor/filemanager/connectors/test.html: OpenCart/FCKeditor File upload
+|   /admin/includes/FCKeditor/editor/filemanager/upload/test.html: ASP Simple Blog / FCKeditor File Upload
+|   /admin/jscript/upload.html: Lizard Cart/Remote File upload
+|_  /webdav/: Potentially interesting folder
+| http-php-version: Logo query returned unknown hash f6d45206161a6df485dd082e3055b012
+|_Credits query returned unknown hash f6d45206161a6df485dd082e3055b012
+|_http-title: Apache Tomcat/5.5
+|_http-referer-checker: Couldn't find any cross-domain scripts.
+|_http-slowloris: false
+|_http-date: Sun, 27 Sep 2026 21:07:11 GMT; -5h47m24s from local time.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-brute:   
+|_  Path "/" does not require authentication
+|_http-chrono: Request times for /; avg: 921.53ms; min: 664.30ms; max: 1122.96ms
+| http-sitemap-generator: 
+|   Directory structure:
+|     /
+|       Other: 1; gif: 3; txt: 1
+|     /admin/
+|       Other: 1
+|     /jsp-examples/
+|       Other: 1
+|     /servlets-examples/
+|       Other: 1
+|     /tomcat-docs/
+|       Other: 1; html: 3
+|     /tomcat-docs/appdev/
+|       html: 1
+|     /tomcat-docs/images/
+|       gif: 1
+|     /webdav/
+|       Other: 1; gif: 2; html: 1
+|   Longest directory structure:
+|     Depth: 2
+|     Dir: /tomcat-docs/images/
+|   Total files found (by extension):
+|_    Other: 6; gif: 6; html: 5; txt: 1
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port514-TCP:V=7.99%I=7%D=9/27%Time=6AB9C881%P=x86_64-pc-linux-gnu%r(NUL
+SF:L,2B,"\x01Couldn't\x20get\x20address\x20for\x20your\x20host\x20\(kali\)
+SF:\n");
+MAC Address: 00:0C:29:2F:A8:DF (VMware)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.9 - 2.6.33
+Uptime guess: 0.347 days (since Sun Sep 27 14:40:13 2026)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=201 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: Hosts:  metasploitable.localdomain, irc.Metasploitable.LAN; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.00 ms 192.168.0.156
+
+NSE: Script Post-scanning.
+Initiating NSE at 22:59
+Completed NSE at 22:59, 0.00s elapsed
+Initiating NSE at 22:59
+Completed NSE at 22:59, 0.00s elapsed
+Read data files from: /usr/share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 3993.77 seconds
+           Raw packets sent: 1020 (45.626KB) | Rcvd: 1016 (41.430KB)
